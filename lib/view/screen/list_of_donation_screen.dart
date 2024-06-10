@@ -13,7 +13,7 @@ import '../widget/custom_menu.dart';
 import '../widget/custom_reservation_list_view_item_of_donation.dart';
 
 class ListOfDonationInPointScreen extends StatefulWidget {
-  final List<WaitedDonations> waitedDonations;
+  final List<dynamic> waitedDonations;
 
   const ListOfDonationInPointScreen({super.key, required this.waitedDonations});
 

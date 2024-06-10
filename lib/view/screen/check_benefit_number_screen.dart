@@ -121,6 +121,7 @@ class _CheckBenefitNumberScreenState extends State<CheckBenefitNumberScreen> {
                                 setState(() {
                                   _isLoading = true;
                                 });
+                                donationController.waitedReservations.clear();
                                 donationController
                                     .getWaitedReservationsByPhoneNumber(
                                     phoneNumberController.text)
@@ -129,10 +130,12 @@ class _CheckBenefitNumberScreenState extends State<CheckBenefitNumberScreen> {
                                     _isLoading = false;
                                   });
                                   var waitedReservations = donationController.waitedReservations.toList();
-                                  Get.to(() => ListOfBookingInPointScreen(
-                                    waitedReservations: waitedReservations,
-                                  ));
-
+                                  if(waitedReservations.isNotEmpty) {
+                                    Get.to(() =>
+                                        ListOfBookingInPointScreen(
+                                          waitedReservations: waitedReservations,
+                                        ));
+                                  }
                                 });
                               }
                             },

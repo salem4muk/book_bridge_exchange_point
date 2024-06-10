@@ -119,6 +119,7 @@ class _CheckDonorNumberScreenState extends State<CheckDonorNumberScreen> {
                               setState(() {
                                 _isLoading = true;
                               });
+                              donationController.waitedDonations.clear();
                               donationController
                                   .getWaitedDonationsByPhoneNumber(
                                   phoneNumberController.text)
@@ -126,16 +127,13 @@ class _CheckDonorNumberScreenState extends State<CheckDonorNumberScreen> {
                                 setState(() {
                                   _isLoading = false;
                                 });
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        ListOfDonationInPointScreen(
-                                          waitedDonations:
-                                          donationController.waitedDonations,
-                                        ),
-                                  ),
-                                );
+                                var waitedDonations = donationController.waitedDonations.toList();
+                                if(waitedDonations.isNotEmpty) {
+                                  Get.to(() =>
+                                      ListOfDonationInPointScreen(
+                                        waitedDonations: waitedDonations,
+                                      ));
+                                }
                               });
                             }
                           },
