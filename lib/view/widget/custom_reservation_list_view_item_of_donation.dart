@@ -8,8 +8,6 @@ import 'package:iconly/iconly.dart';
 import 'package:material_dialogs/dialogs.dart';
 
 import '../../constans/color.dart';
-import '../screen/fail_screen.dart';
-import '../screen/verify_code_screen.dart';
 import 'custom_button.dart';
 
 class CustomReservationListViewItemOfDonation extends StatefulWidget {
